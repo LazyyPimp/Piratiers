@@ -7,6 +7,8 @@ const Discord = require('discord.js');
    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You can't use that command!")	
    let dMessage = args.join(" ").slice(22);	
    if(dMessage.length < 1) return message.reply('You must supply a message!')	
+  
+    message.delete().catch();
 
       dUser.send(`<@!557608896340951060> sent you: ${dMessage}`)	
 
