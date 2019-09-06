@@ -8,7 +8,7 @@ bot.user.setStatus('dnd')
   .catch(console.error);
   
     message.delete().catch();
-  (message.channel.send(`Set status to "dnd"!`).then(msg => msg.delete(5000)));
+  (message.author.send(`Set status to "dnd"!`));
   
 }
 
