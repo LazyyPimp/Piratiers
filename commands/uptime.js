@@ -14,7 +14,7 @@ module.exports.run = (bot, message, args) => {
   .setColor("RANDOM")
   .setTimestamp()
   .setFooter(`Requested by ${message.author.username}.`)
-  message.channel.send({embed: em})
+  message.author.send({embed: em})
 }
 
 module.exports.help = {
