@@ -8,6 +8,7 @@ bot.user.setStatus('idle')
   .catch(console.error);
  
    message.delete().catch();
+  (message.channel.send(`Yeeted on your ass bro fuck`)
   (message.author.send(`Set status to "idle"!`));
 
 }
