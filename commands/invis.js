@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
 bot.user.setStatus('invisible')
   .then(console.log)
   .catch(console.error);
+    message.delete().catch();
     (message.channel.send(`Set status to "invisible"!`).then(msg => msg.delete(5000)));
 
 }
