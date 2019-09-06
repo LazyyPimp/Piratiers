@@ -10,7 +10,7 @@ const Discord = require('discord.js');
   
     message.delete().catch();
 
-      dUser.send(`<@!557608896340951060> sent you: ${dMessage}`)	
+      dUser.send(`${message.author} sent you: ${dMessage}`)	
 
       message.author.send(`${message.author} You have sent your message to ${dUser}`)	
 
