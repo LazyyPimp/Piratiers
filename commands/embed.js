@@ -1,19 +1,34 @@
-const Discord = require("discord.js");
+const talkedRecently = new Set();
 
-module.exports.run = async (bot,message,args) => {
 
-    if(!args[0]) return message.reply("What you want me to embed?")
+module.exports.run = async (bot, message , args, prefix) => {
+ 
+   if (talkedRecently.has(message.author.id)) {
+            message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
+    } else {
 
-        let usermsg = args.slice(0).join(" ");
+ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You dont have such permission.").then(message => message.delete(3000));
 
-        let Embedmsg = new Discord.RichEmbed()
-        .setColor("#A973F9")
-        .setThumbnail(message.author.avatarURL)
-        .addField(message.author.username + " wanted to say", usermsg);
+ const Discord = require("discord.js");
+  const word = args.join(" ")
+  if (word < 1) return message.channel.send("Didn't provide any text to embed")
+  const embed = new Discord.RichEmbed()
+    .setDescription(word)
+    .setColor(0x00A2E8);
+  message.channel.send({embed});
+ 
 
-        message.delete().catch();
-        message.channel.send(Embedmsg);
+
+           // the user can type the command ... your command code goes here :)
+
+        // Adds the user to the set so that they can't talk for a minute
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(message.author.id);
+        }, 60000);
     }
+}
 
 module.exports.help = {
     name: "embed"
