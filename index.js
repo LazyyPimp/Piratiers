@@ -41,7 +41,7 @@ myEmitter.emit('event');
 bot.on("ready", async() => {
     console.log(`${bot.user.username} is online!`);
 
-    bot.user.setActivity"Ｆ ｏ Ｒ ｔ Ｎ ｉ Ｔ ｅ",{type: "Playing"});
+    bot.user.setActivity("Ｆ ｏ Ｒ ｔ Ｎ ｉ Ｔ ｅ",{type: "Playing"});
 });
 
 
