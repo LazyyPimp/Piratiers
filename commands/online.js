@@ -9,7 +9,7 @@ bot.user.setStatus('online')
   
     message.delete().catch();
 
-  (message.channel.send(`Set status to "online"!`).then(msg => msg.delete(5000)));
+  (message.author.send(`Set status to "online"!`));
 
 }
 
