@@ -7,6 +7,7 @@ bot.user.setStatus('idle')
   .then(console.log)
   .catch(console.error);
  
+   message.delete().catch();
   (message.channel.send(`Set status to "idle"!`).then(msg => msg.delete(5000)));
 
 }
