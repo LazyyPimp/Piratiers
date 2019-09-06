@@ -41,7 +41,7 @@ myEmitter.emit('event');
 bot.on("ready", async() => {
     console.log(`${bot.user.username} is online!`);
 
-    bot.user.setActivity("with my feelings",{type: "Playing"});
+    bot.user.setActivity"Ｆ ｏ Ｒ ｔ Ｎ ｉ Ｔ ｅ",{type: "Playing"});
 });
 
 
@@ -146,7 +146,7 @@ message.reply(`${member.user.tag} has been banned by ${message.author.tag} becau
         .addField("You Joined", message.member.joinedAt)
         .addField("Total Members", message.guild.memberCount);
 
-        return message.channel.send(serverInfo);
+        return message.author.send(serverInfo);
     }
 
     if(cmd == `${prefix}botinfo` || cmd == `${prefix}binfo`){
@@ -160,7 +160,7 @@ message.reply(`${member.user.tag} has been banned by ${message.author.tag} becau
         .addField("Owner", "Lazyy")
         .addField("Created On", bot.user.createdAt);
 
-        return message.channel.send(botInfo);
+        return message.author.send(botInfo);
     }
 });
 
