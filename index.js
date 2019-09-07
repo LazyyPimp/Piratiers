@@ -70,7 +70,7 @@ if(cmd === ".avatar") {
 
 
 if(cmd === ".invite") {
-    message.author.send("https://discord.gg/3YfpZrG");
+    message.author.send("https://discord.gg/WBCuDFh");
  };
 
 
