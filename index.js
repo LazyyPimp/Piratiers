@@ -70,13 +70,13 @@ if(cmd === ".avatar") {
 
 
 if(cmd === ".invite") {
-    message.reply("https://discord.gg/3YfpZrG");
+    message.author.send("https://discord.gg/3YfpZrG");
  };
 
 
 
 if(cmd === ".owner") {
-    message.reply("Lazyy#9825");
+    message.author.send("Lazyy#9825");
 };
     
      if (cmd === ".ping") {
