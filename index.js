@@ -64,26 +64,20 @@ bot.on("message", async message => {
     if(commandfile) commandfile.run(bot, message, args);
 
     
-    bot.on('message', message => {
-  if (message.content === '.avatar') {
+if(cmd === ".avatar") {
     message.reply(message.author.avatarURL);
-  }
-});
+  };
 
 
-bot.on('message', message => {
-  if (message.content === '.invite') {
+if(cmd === ".invite") {
     message.reply("https://discord.gg/3YfpZrG");
-  }
-});
+ };
 
 
 
-bot.on('message', message => {
-  if (message.content === '.owner') {
+if(cmd === ".owner") {
     message.reply("Lazyy#9825");
-  }
-});
+};
     
      if (cmd === ".ping") {
         const msg = await message.channel.send(`🏓 Pinging....`);
