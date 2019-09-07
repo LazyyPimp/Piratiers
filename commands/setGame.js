@@ -1,3 +1,5 @@
+const oid = process.env.oid
+
 module.exports.run = (bot, message, args, discord) => {
  var game = args.join(' ')
   if (message.author.id == oid) {
