@@ -69,12 +69,6 @@ bot.on("message", async message => {
     message.reply(message.author.avatarURL);
   }
 });
-    
-bot.on('message', message => {
-    if(message.content === 'OwO' || message === 'owo') {
-       message.reply("Shut up furry ass hoe");
-}
-});
 
 
 bot.on('message', message => {
