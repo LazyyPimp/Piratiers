@@ -70,10 +70,11 @@ bot.on("message", async message => {
   }
 });
     
-bot.on*'message', message => {
-    if(message.content === 'OwO' || message === 'owo'
+bot.on('message', message => {
+    if(message.content === 'OwO' || message === 'owo') {
        message.reply("Shut up furry ass hoe");
 }
+});
 
 
 bot.on('message', message => {
