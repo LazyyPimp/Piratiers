@@ -44,6 +44,30 @@ bot.on("ready", async() => {
     bot.user.setActivity("Ｆ ｏ Ｒ ｔ Ｎ ｉ Ｔ ｅ",{type: "Playing"});
 });
 
+bot.on('guildMemberAdd', member => {
+bot.on('message', 
+
+
+var role = member.guild.roles.find('name', 'Member'); // Variable to get channel ID
+member.addRole(role); // Adds the default role to members
+
+member.guild.channels.get('614231004760244224').send({embed: {
+color: 3447003,
+title: "**Piratiers** Welcome Bot!",
+url: "https://discord.gg/FBWcPJK",
+description: "Welcome *" + member + "* to the **Piratiers** discord server!",
+fields: [{
+    name: "Information",
+    value: "Official server for the Piratiers streams/videos."
+  }
+],
+timestamp: new Date(),
+footer: {
+  icon_url: bot.user.avatarURL,
+  text: "PiratiersOnline - 2019"
+}
+}}); });
+
 
 bot.on("message", async message => {
     if(message.author.bot) return;
