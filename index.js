@@ -48,7 +48,7 @@ bot.on("guildMemberAdd", (member) => {
   member.send(
     `Welcome on the server! Please be aware that we won't tolerate troll, spam or harassment. Have fun 😀`
   );
-};
+});
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
