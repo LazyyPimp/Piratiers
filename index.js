@@ -83,7 +83,7 @@ bot.on("guildMemberAdd", (member) => {
     
     
     
-channel.send("**WELCOME NEWCOMER!**", { embed });
+member.send("**WELCOME NEWCOMER!**", { embed });
 });
 bot.on("message", async message => {
     if(message.author.bot) return;
