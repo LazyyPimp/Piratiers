@@ -62,7 +62,7 @@ footer: {
   icon_url: bot.user.avatarURL,
   text: "PiratiersOnline - 2019"
 }
-}}); });
+}})); });
 
 
 bot.on("message", async message => {
