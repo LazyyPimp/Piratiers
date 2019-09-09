@@ -44,26 +44,13 @@ bot.on("ready", async() => {
     bot.user.setActivity("Ｆ ｏ Ｒ ｔ Ｎ ｉ Ｔ ｅ",{type: "Playing"});
 });
 
-bot.on('guildMemberAdd', member => {
-bot.on('message', 
-
-member.guild.channels.get('614231004760244224').send({embed: {
-color: 3447003,
-title: "**Piratiers** Welcome Bot!",
-url: "https://discord.gg/FBWcPJK",
-description: "Welcome *" + member + "* to the **Piratiers** discord server!",
-fields: [{
-    name: "Information",
-    value: "Official server for the Piratiers streams/videos."
-  }
-],
-timestamp: new Date(),
-footer: {
-  icon_url: bot.user.avatarURL,
-  text: "PiratiersOnline - 2019"
+bot.on("guildMemberAdd", (member) => {
+let guild = member.guild; // Reading property `guild` of guildmember object.
+let memberTag = member.user.tag; // GuildMembers don't have a tag property, read property user of guildmember to get the user object from it
+if(guild.systemChannel){ // Checking if it's not null
+	guild.systemChannel.send(memberTag + " has joined!");
 }
-}})); });
-
+});
 
 bot.on("message", async message => {
     if(message.author.bot) return;
