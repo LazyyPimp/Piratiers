@@ -45,9 +45,45 @@ bot.on("ready", async() => {
 });
 
 bot.on("guildMemberAdd", (member) => {
-  member.send(
-    `Welcome on the server! Please be aware that we won't tolerate troll, spam or harassment. Have fun 😀`
-  );
+ const embed = {
+  "title": "Welcome To our Server!",
+  "description": "Please read the rules, And follow them. We dont like drama in our server! ",
+  "url": "https://discord.gg/WBCuDFh",
+  "color": 1251453,
+  "footer": {
+    "icon_url": "https://cdn.discordapp.com/avatars/556652490733387786/7154c9025d79468650c793ef5ad67c26.png?size=2048",
+    "text": "Bot by Lazyy#9825"
+  },
+  "thumbnail": {
+    "url": "https://cdn.discordapp.com/avatars/556652490733387786/7154c9025d79468650c793ef5ad67c26.png?size=2048"
+  },
+  "image": {
+    "url": "https://cdn.discordapp.com/avatars/556652490733387786/7154c9025d79468650c793ef5ad67c26.png?size=2048"
+  },
+  "author": {
+    "name": "PiratiersOnline",
+    "url": "https://discord.gg/WBCuDFh",
+    "icon_url": "https://cdn.discordapp.com/avatars/556652490733387786/7154c9025d79468650c793ef5ad67c26.png?size=2048"
+  },
+  "fields": [
+    {
+      "name": "🤔",
+      "value": "Watch the streams for weird ass content :D"
+    },
+    {
+      "name": "😱",
+      "value": "Try to have fun in the server!"
+    },
+    {
+      "name": "🙄",
+      "value": "Ignore Lazyy's stupid shit!"
+    }
+  ]
+ };
+    
+    
+    
+channel.send("**WELCOME NEWCOMER!**", { embed });
 });
 bot.on("message", async message => {
     if(message.author.bot) return;
