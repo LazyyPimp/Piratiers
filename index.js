@@ -45,13 +45,10 @@ bot.on("ready", async() => {
 });
 
 bot.on("guildMemberAdd", (member) => {
-let guild = member.guild; // Reading property `guild` of guildmember object.
-let memberTag = member.user.tag; // GuildMembers don't have a tag property, read property user of guildmember to get the user object from it
-if(guild.systemChannel){ // Checking if it's not null
-	guild.systemChannel.send(memberTag + " has joined!");
-}
-});
-
+  member.send(
+    `Welcome on the server! Please be aware that we won't tolerate troll, spam or harassment. Have fun 😀`
+  );
+};
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
