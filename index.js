@@ -48,7 +48,7 @@ bot.on('guildMemberAdd', member => {
 bot.on('message', 
 
 
-var role = member.guild.roles.find('name', 'Member'); // Variable to get channel ID
+const role = member.guild.roles.find('name', 'Member'); // Variable to get channel ID
 member.addRole(role); // Adds the default role to members
 
 member.guild.channels.get('614231004760244224').send({embed: {
