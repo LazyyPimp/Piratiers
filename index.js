@@ -47,10 +47,6 @@ bot.on("ready", async() => {
 bot.on('guildMemberAdd', member => {
 bot.on('message', 
 
-
-const role = member.guild.roles.find('name', 'Member'); // Variable to get channel ID
-member.addRole(role); // Adds the default role to members
-
 member.guild.channels.get('614231004760244224').send({embed: {
 color: 3447003,
 title: "**Piratiers** Welcome Bot!",
