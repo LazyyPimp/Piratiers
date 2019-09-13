@@ -178,7 +178,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
     change = Changes.avatar
   }
   // post in the guild's log channel
-  var log = guild.channels.find('name', modlogs)
+  var log = guild.channels.find('name', mod-logs)
   if (log != null) {
     switch (change) {
       case Changes.unknown:
