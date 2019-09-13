@@ -126,6 +126,88 @@ if(cmd === ".owner") {
         msg.edit(`🏓 Pong!\nLatency is ${Math.floor(msg.createdTimestap - message.createdTimestap)}ms\nAPI Latency is ${Math.round(bot.ping)}ms`);
     }
     
+    client.on('messageDelete', function (message) {
+  if (message.channel.type === 'text') {
+    // post in the server's log channel, by finding the accuratebotlog channel (SERVER ADMINS **MUST** CREATE THIS CHANNEL ON THEIR OWN, IF THEY WANT A LOG)
+    var log = message.guild.channels.find('name', CHANNEL)
+    if (log != null) {
+      log.sendMessage('**Message Deleted** ' + message.author + '\'s message: ' + message.cleanContent + ' has been deleted.')
+    }
+  }
+})
+
+
+client.on('guildMemberUpdate', (oldMember, newMember) => {
+  const guild = newMember.guild;
+  var Changes = {
+    unknown: 0,
+    addedRole: 1,
+    removedRole: 2,
+    username: 3,
+    nickname: 4,
+    avatar: 5
+  }
+  var change = Changes.unknown
+
+  var removedRole = ''
+  oldMember.roles.every(function (value) {
+    if (newMember.roles.find('id', value.id) == null) {
+      change = Changes.removedRole
+      removedRole = value.name
+    }
+  })
+
+  var addedRole = ''
+  newMember.roles.every(function (value) {
+    if (oldMember.roles.find('id', value.id) == null) {
+      change = Changes.addedRole
+      addedRole = value.name
+    }
+  })
+
+  // check if username changed
+  if (newMember.user.username != oldMember.user.username) {
+    change = Changes.username
+  }
+  // check if nickname changed
+  if (newMember.nickname != oldMember.nickname) {
+    change = Changes.nickname
+  }
+  // check if avatar changed
+  if (newMember.user.avatarURL != oldMember.user.avatarURL) {
+    change = Changes.avatar
+  }
+  // post in the guild's log channel
+  var log = guild.channels.find('name', modlogs)
+  if (log != null) {
+    switch (change) {
+      case Changes.unknown:
+        log.sendMessage('**[User Update]** ' + newMember)
+        break
+      case Changes.addedRole:
+        log.sendMessage('**[User Role Added]** ' + newMember + ': ' + addedRole)
+        break
+      case Changes.removedRole:
+        log.sendMessage('**[User Role Removed]** ' + newMember + ': ' + removedRole)
+        break
+      case Changes.username:
+        log.sendMessage('**[User Username Changed]** ' + newMember + ': Username changed from ' +
+          oldMember.user.username + '#' + oldMember.user.discriminator + ' to ' +
+          newMember.user.username + '#' + newMember.user.discriminator)
+        break
+      case Changes.nickname:
+        log.sendMessage('**[User Nickname Changed]** ' + newMember + ': ' +
+          (oldMember.nickname != null ? 'Changed nickname from ' + oldMember.nickname +
+            +newMember.nickname : 'Set nickname') + ' to ' +
+          (newMember.nickname != null ? newMember.nickname + '.' : 'original username.'))
+        break
+      case Changes.avatar:
+        log.sendMessage('**[User Avatar Changed]** ' + newMember)
+        break
+    }
+  }
+})
+    
     
     	 if(cmd === ".kick") {
         message.delete()
