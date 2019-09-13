@@ -140,24 +140,6 @@ bot.on('message', function(message) {
     }
 });
 
-//message deleted
-bot.on('messageDelete', function(message) {
-
-    if(message.channel.type == 'text') {
-
-        //log to console
-        console.log('[' + message.guild.name + '][#' + message.channel.name + '][DELMSG] ' + message.author.username +
-            '#' + message.author.discriminator + ': ' + formatConsoleMessage(message));
-
-        //post in the guild's log channel
-        var log = message.guild.channels.find('name', logs);
-        if (log != null)
-            log.sendMessage('**[Message Deleted]** ' + message.author + ': ' + message.cleanContent);
-
-    }
-
-});
-
 //message update
 bot.on('messageUpdate', function(oldMessage, newMessage) {
 
