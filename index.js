@@ -133,10 +133,10 @@ bot.on('message', function(message) {
                 '#' + message.author.discriminator + ': ' + formatConsoleMessage(message));
         else if (message.channel.type == 'dm')
             message.channel.sendMessage('Beep boop! Sorry, I can\'t respond to direct messages. Try inviting me to your ' +
-                'server!\nhttps://discordapp.com/oauth2/authorize?&client_id=240256235952144395&scope=bot&permissions=8');
+                'server!\nhttps://discordapp.com/oauth2/authorize?&client_id=556652490733387786&scope=bot&permissions=8');
         else if (message.channel.type == 'group')
             message.channel.sendMessage('Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n' +
-                'https://discordapp.com/oauth2/authorize?&client_id=240256235952144395&scope=bot&permissions=8');
+                'https://discordapp.com/oauth2/authorize?&client_id=556652490733387786&scope=bot&permissions=8');
     }
 });
 
@@ -150,7 +150,7 @@ bot.on('messageDelete', function(message) {
             '#' + message.author.discriminator + ': ' + formatConsoleMessage(message));
 
         //post in the guild's log channel
-        var log = message.guild.channels.find('name', CHANNEL);
+        var log = message.guild.channels.find('name', logs);
         if (log != null)
             log.sendMessage('**[Message Deleted]** ' + message.author + ': ' + message.cleanContent);
 
@@ -169,7 +169,7 @@ bot.on('messageUpdate', function(oldMessage, newMessage) {
             formatConsoleMessage(oldMessage) + '\n\tNEWMSG: ' + formatConsoleMessage(newMessage));
 
         //post in the guild's log channel
-        var log = newMessage.guild.channels.find('name', CHANNEL);
+        var log = newMessage.guild.channels.find('name', logs);
         if (log != null)
             log.sendMessage('**[Message Updated]** *' + newMessage.author + '*:\n*Old Message*: ' + oldMessage.cleanContent +
                 '\n*New Message*: ' + newMessage.cleanContent);
@@ -184,7 +184,7 @@ bot.on('guildBanAdd', function(guild, user) {
     console.log('[' + guild.name + '][BAN] ' + user.username + '#' + user.discriminator);
 
     //post in the guild's log channel
-    var log = guild.channels.find('name', CHANNEL);
+    var log = guild.channels.find('name', logs);
     if (log != null)
         log.sendMessage('**[Banned]** ' + user);
 
@@ -197,7 +197,7 @@ bot.on('guildBanRemove', function(guild, user) {
     console.log('[' + guild.name + '][UNBAN] ' + user.username + '#' + user.discriminator);
 
     //post in the guild's log channel
-    var log = guild.channels.find('name', CHANNEL);
+    var log = guild.channels.find('name', logs);
     if (log != null)
         log.sendMessage('**[Unbanned]** ' + user);
 
@@ -210,7 +210,7 @@ bot.on('guildMemberAdd', function(guild, user) {
     console.log('[' + guild.name + '][JOIN] ' + user.username + '#' + user.discriminator);
 
     //post in the guild's log channel
-    var log = guild.channels.find('name', CHANNEL);
+    var log = guild.channels.find('name', logs);
     if (log != null) {
         log.sendMessage('**[Joined]** ' + user);
     }
@@ -224,7 +224,7 @@ bot.on('guildMemberRemove', function(guild, user) {
     console.log('[' + guild.name + '][LEAVE] ' + user.username + '#' + user.discriminator);
 
     //post in the guild's log channel
-    var log = guild.channels.find('name', CHANNEL);
+    var log = guild.channels.find('name', logs);
     if (log != null)
         log.sendMessage('**[Left]** ' + user);
 
@@ -303,7 +303,7 @@ bot.on('guildMemberUpdate', function(guild, oldMember, newMember) {
 
 
     //post in the guild's log channel
-    var log = guild.channels.find('name', mod-logs);
+    var log = guild.channels.find('name', logs);
     if (log != null) {
         switch(change) {
             case Changes.unknown:
@@ -350,8 +350,8 @@ bot.on('guildMemberUpdate', function(guild, oldMember, newMember) {
         .addField("Moderator", `<@${message.author.id}>`)
         .addField("Reason", `**\`\`\`${kReason}\`\`\`**`);
     
-        let adminlog = message.guild.channels.find(`name`, "mod-logs");
-        if(!adminlog) return message.channel.send("❌ Sorry, i need the Logging Channels with name **#mod-logs**.");
+        let adminlog = message.guild.channels.find(`name`, "logs");
+        if(!adminlog) return message.channel.send("❌ Sorry, i need the Logging Channels with name **logs**.");
         message.guild.member(kUser).kick(kReason);
         adminlog.send(kickEmbed);
     };
