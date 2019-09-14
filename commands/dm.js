@@ -12,7 +12,7 @@ const Discord = require('discord.js');
 
       dUser.send(`${message.author} sent you: ${dMessage}`)	
 
-      message.author.send(`${message.author} You have sent your message to ${dUser}`)	
+      message.author.send(`${message.author} You have sent your message to ${dUser}!`)	
 
    }	
 
