@@ -168,7 +168,8 @@ const embed = new Discord.RichEmbed()
     
     const swearWords = ["darn", "shucks", "frak", "shite"];
 if( swearWords.some(word => message.content.includes(word))) {
-  message.reply("Oh no you said a bad word!!!");
+  message.reply("Language");
+    message.delete();
 };
     
     
