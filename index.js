@@ -81,7 +81,7 @@ bot.on("guildMemberAdd", (member) => {
   ]
  };
     
-    client.on("message", (message) => {
+    bot.on("message", (message) => {
   if(message.content === "ayy") {
     message.channel.send("Ayy, lmao");
   }
