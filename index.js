@@ -127,7 +127,7 @@ if(cmd === ".owner") {
     }
     
     
-    if(cmd === "unmute") {
+    if(cmd === prefix + "unmute") {
 let reason = args.slice(1).join(' ');
 let user = message.mentions.users.first();
 let logchannel = message.guild.channels.find('name', 'logs');
