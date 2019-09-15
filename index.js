@@ -124,11 +124,6 @@ if(cmd === ".avatar") {
 if(cmd === ".invite") {
     message.author.send("https://discord.gg/WBCuDFh");
  };
-    
-    
-    const swearWords = ["darn", "shucks", "frak", "shite"];
-if( swearWords.some(word => message.content.includes(word)) ) {
-  message.reply("Oh no you said a bad word!!!");
 
 
 
@@ -170,6 +165,11 @@ const embed = new Discord.RichEmbed()
   unmute in the logs channel.`)
   return logchannel.send(embed);
   };
+    
+    const swearWords = ["darn", "shucks", "frak", "shite"];
+if( swearWords.some(word => message.content.includes(word))) {
+  message.reply("Oh no you said a bad word!!!");
+};
     
     
     	 if(cmd === ".kick") {
