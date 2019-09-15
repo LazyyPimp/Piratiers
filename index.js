@@ -166,11 +166,7 @@ const embed = new Discord.RichEmbed()
   return logchannel.send(embed);
   };
     
-    const swearWords = ["tit", "shit", "fuck", "ass","pussy", "bitch", "hoe", "nigger", "nigga", "N I G G A", "N1GGA", "clit", "dick", "hell", "homo", "ass", "bitchass", "faggot", "whore", "hoe", "fag", "cunt", "sh it", "shit", "sex",];
-if( swearWords.some(word => message.content.includes(word))) {
-  message.reply("Language");
-    message.delete();
-};
+
     
     
     	 if(cmd === ".kick") {
