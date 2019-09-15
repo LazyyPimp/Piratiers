@@ -11,7 +11,6 @@ module.exports.run = async (bot, message, args) => {
         embed.setColor("F08080")
         embed.setDescription('Suggest features to our discord server with `.suggest <suggestion>`')
         embed.setThumbnail(`${message.author.avatarURL}`)
-        embed.addBlankField(true)
         embed.addField('Suggestion',
         `${suggestion}`)
         embed.addField('Suggestion By',
