@@ -81,6 +81,18 @@ bot.on("guildMemberAdd", (member) => {
   ]
  };
     
+    client.on("message", (message) => {
+  if(message.content === "ayy") {
+    message.channel.send("Ayy, lmao");
+  }
+  if(message.content === "wat") {
+    message.channel.send("huh");
+  }
+  if(message.content === "lol") {
+    message.channel.send("LMAO SO FUNNY HAHA");
+  }
+});
+    
     
     
 member.send("**WELCOME NEWCOMER!**", { embed });
