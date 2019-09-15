@@ -135,12 +135,10 @@ let role = message.guild.roles.find('name', 'Muted')
 //CHANGE THIS ^^
 
 if (!logchannel) return message.reply('I cannot find a logs channel');
-if (!message.member.hasPermission("MANAGE_MESSAGES")) return 
-message.reply(":no_entry_sign: **Error:** You don't have the permission!");
+if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(":no_entry_sign: **Error:** You don't have the permission!");
 if (reason.length < 1) return message.reply('You must supply a reason for the mute.');
 if (message.mentions.users.size < 1) return message.reply('You must mention someone to mute them.').catch(console.error);
 
-if (!message.guild.member(user).roles.has(role)) return message.reply(`:no_entry_sign: I cannot unmute that member`);
 message.guild.member(user).removeRole(role);
 
 const embed = new Discord.RichEmbed()
