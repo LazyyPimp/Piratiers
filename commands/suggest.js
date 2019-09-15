@@ -17,8 +17,8 @@ module.exports.run = async (bot, message, args) => {
         embed.addField('Suggestion By',
         `<@${message.author.id}>`)
 
-        if (message.guild.id === 'GuildID')
-        bot.channels.get('ChannelID').send(embed).then(x=> x.react('👍').then(x.react('👎')))
+        if (message.guild.id === '580906154461495347')
+        bot.channels.get('622845390429093909').send(embed).then(x=> x.react('👍').then(x.react('👎')))
         message.delete()
     }
    
