@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const discord = require('discord.js');
 
 module.exports.run = (bot, message, args) => {
   var hrs = Math.round(bot.uptime / (1000 * 60 * 60)) + " hour(s),"
@@ -8,7 +8,7 @@ module.exports.run = (bot, message, args) => {
   if (mins == " 0 minute(s), ") mins = ""
   let uptime = hrs+mins+sec
   
-  let em = new Discord.RichEmbed()
+  let em = new discord.RichEmbed()
   .setTitle(`**${bot.user.username} Uptime**\n`)
   .setDescription(`**Serving ${bot.guilds.size} servers for ${uptime}!**`)
   .setColor("RANDOM")
